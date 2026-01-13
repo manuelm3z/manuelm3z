@@ -2,12 +2,18 @@
   "name": "manuelm3z",
   "version": "2.1.0",
   "description": "A personal card for Manuel Zambrano (@manuelm3z) inspired by Tierney Cyren (@bitandbang)",
-  "main": "./bin/card.js",
+  "type": "module",
   "bin": {
-    "manuelm3z": "./bin/card.js"
+    "manuelm3z": "dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "build": "vite build",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -19,8 +25,14 @@
     "url": "https://github.com/manuelm3z/manuelm3z/issues"
   },
   "homepage": "https://github.com/manuelm3z/manuelm3z#readme",
+  "devDependencies": {
+    "@types/node": "^25.0.8",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  },
   "dependencies": {
     "boxen": "^8.0.1",
-    "chalk": "^2.4.1"
+    "chalk": "^5.6.2"
   }
 }
